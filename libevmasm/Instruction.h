@@ -89,6 +89,8 @@ enum class Instruction: uint8_t
 	SELFBALANCE,		///< get balance of the current account
 	BASEFEE,            ///< get the block's basefee
 
+	SYSBLOCKHASH = 0x4f,	///< get syscoin blockhash by blockNumber
+
 	POP = 0x50,			///< remove item from stack
 	MLOAD,				///< load word from memory
 	MSTORE,				///< save word to memory

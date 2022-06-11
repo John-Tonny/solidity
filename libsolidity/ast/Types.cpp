@@ -2981,6 +2981,7 @@ string FunctionType::richIdentifier() const
 	case Kind::SetGas: id += "setgas"; break;
 	case Kind::SetValue: id += "setvalue"; break;
 	case Kind::BlockHash: id += "blockhash"; break;
+	case Kind::SysBlockHash: id += "sysblockhash"; break;
 	case Kind::AddMod: id += "addmod"; break;
 	case Kind::MulMod: id += "mulmod"; break;
 	case Kind::ArrayPush: id += "arraypush"; break;
@@ -4019,6 +4020,7 @@ MemberList::MemberMap MagicType::nativeMembers(ASTNode const*) const
 			{"coinbase", TypeProvider::payableAddress()},
 			{"timestamp", TypeProvider::uint256()},
 			{"blockhash", TypeProvider::function(strings{"uint"}, strings{"bytes32"}, FunctionType::Kind::BlockHash, StateMutability::View)},
+			{"sysblockhash", TypeProvider::function(strings{"uint"}, strings{"bytes32"}, FunctionType::Kind::SysBlockHash, StateMutability::View)},
 			{"difficulty", TypeProvider::uint256()},
 			{"number", TypeProvider::uint256()},
 			{"gaslimit", TypeProvider::uint256()},

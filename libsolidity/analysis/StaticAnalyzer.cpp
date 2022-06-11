@@ -211,6 +211,12 @@ bool StaticAnalyzer::visit(MemberAccess const& _memberAccess)
 				_memberAccess.location(),
 				"\"block.blockhash()\" has been deprecated in favor of \"blockhash()\""
 			);
+		else if (type->kind() == MagicType::Kind::Block && _memberAccess.memberName() == "sysblockhash")
+			m_errorReporter.typeError(
+				8113_error,
+				_memberAccess.location(),
+				"\"block.sysblockhash()\" has been deprecated in favor of \"sysblockhash()\""
+			);
 		else if (type->kind() == MagicType::Kind::MetaType && _memberAccess.memberName() == "runtimeCode")
 		{
 			if (!m_constructorUsesAssembly)

@@ -136,6 +136,7 @@ public:
 	smtutil::Expression txTypeConstraints() const;
 	smtutil::Expression txNonPayableConstraint() const;
 	smtutil::Expression blockhash(smtutil::Expression _blockNumber) const;
+	smtutil::Expression sysblockhash(smtutil::Expression _blockNumber) const;
 	//@}
 
 	/// Crypto functions.

@@ -258,6 +258,11 @@ u256 EVMInstructionInterpreter::eval(
 			return 0;
 		else
 			return 0xaaaaaaaa + (arg[0] - m_state.blockNumber - 256);
+	case Instruction::SYSBLOCKHASH:
+		if (arg[0] >= m_state.blockNumber || arg[0] + 256 < m_state.blockNumber)
+			return 0;
+		else
+			return 0xaaaaaaaa + (arg[0] - m_state.blockNumber - 256);
 	case Instruction::COINBASE:
 		return h256(m_state.coinbase, h256::AlignRight);
 	case Instruction::TIMESTAMP:
